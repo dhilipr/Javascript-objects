@@ -1,6 +1,8 @@
+
 'use strict'
 
-display("JAVASCRIPT OBJECT PROPERTIES")
+module.exports=function objproperties(){
+  console.log("JAVASCRIPT OBJECT PROPERTIES")
 
 var cat = {
   name:"Fluffy",
@@ -8,7 +10,7 @@ var cat = {
 }
 
 //property descriptor
-display(Object.getOwnPropertyDescriptor(cat, 'name'))
+console.log(Object.getOwnPropertyDescriptor(cat, 'name'))
   //   Object{
   //   value:Fluffy
   //   writable: true
@@ -26,7 +28,7 @@ var dog = {
 }
 Object.defineProperty(dog, 'name', {writable:false})
 dog.name.first= 'Scratchy'
-display(dog.name) //Object {first: Scratchy last: doggy}
+console.log(dog.name) //Object {first: Scratchy last: doggy}
 
 Object.freeze(dog.name)
 //dog.name.first = 'july' - error
@@ -34,10 +36,10 @@ Object.freeze(dog.name)
 //enumerable- properties can be looped over
 //if enumerable false
 Object.defineProperty(dog, 'name', {enumerable:false})
-display(Object.keys(dog)) //Array{0:color}
-display(JSON.stringify(dog)) //{"color":"White"}
+console.log(Object.keys(dog)) //Array{0:color}
+console.log(JSON.stringify(dog)) //{"color":"White"}
 
-display(dog['name']) //Object {first: Scratchylast: doggy}
+console.log(dog['name']) //Object {first: Scratchylast: doggy}
 
 
 //configurable -prevents attributes from being changed or deleted
@@ -60,8 +62,8 @@ Object.defineProperty(dog, 'fullName',
   })
   
   //dog.fullName = 'Jango Warrior'
-  display(dog.fullName)
-  display(dog.name.first)
-  display(dog.name.last)
+  console.log(dog.fullName)
+  console.log(dog.name.first)
+  console.log(dog.name.last)
   
-  
+}
